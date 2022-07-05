@@ -8,4 +8,11 @@ public class AuthRequestDto {
         private String email;
         private String password;
     }
+
+    @Getter
+    public static class SignUp {
+        private String email;
+        private String password;
+        private String name;
+    }
 }

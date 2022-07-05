@@ -2,6 +2,7 @@ package com.poogie.sns.user.api;
 
 import com.poogie.sns.security.JwtDto;
 import com.poogie.sns.user.dao.AuthService;
+import com.poogie.sns.user.domain.UserEntity;
 import com.poogie.sns.user.dto.AuthRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,8 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     private final AuthService authService;
 
-    @PostMapping
+    @PostMapping("/auth/sign-in")
     public ResponseEntity<JwtDto> signIn(@RequestBody AuthRequestDto.SignIn req) {
         return new ResponseEntity<>(authService.signIn(req), HttpStatus.OK);
+    }
+
+    @PostMapping("/auth/sign-up")
+    public ResponseEntity<UserEntity> signIn(@RequestBody AuthRequestDto.SignUp req) {
+        return new ResponseEntity<>(authService.signUp(req), HttpStatus.OK);
     }
 }
