@@ -7,10 +7,7 @@ import com.poogie.sns.user.dto.AuthRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -24,7 +21,7 @@ public class UserController {
     }
 
     @PostMapping("/auth/sign-up")
-    public ResponseEntity<UserEntity> signIn(@RequestBody AuthRequestDto.SignUp req) {
+    public ResponseEntity<UserEntity> signUp(@RequestBody AuthRequestDto.SignUp req) {
         return new ResponseEntity<>(authService.signUp(req), HttpStatus.OK);
     }
 }
