@@ -2,6 +2,7 @@ package com.poogie.sns.user.dao;
 
 import com.poogie.sns.user.domain.UserEntity;
 import com.poogie.sns.user.dto.AuthRequestDto;
+import com.poogie.sns.user.dto.UserRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UserEntity signUp(AuthRequestDto.SignUp req) {
+    public UserEntity signUp(UserRequestDto.SignUp req) {
         UserEntity user = UserEntity.builder()
                 .email(req.getEmail())
                 .password(passwordEncoder.encode(req.getPassword()))

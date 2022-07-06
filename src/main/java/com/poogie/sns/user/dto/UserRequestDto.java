@@ -2,10 +2,11 @@ package com.poogie.sns.user.dto;
 
 import lombok.Getter;
 
-public class AuthRequestDto {
+public class UserRequestDto {
     @Getter
-    public static class SignIn {
+    public static class SignUp {
         private String email;
         private String password;
+        private String name;
     }
 }
