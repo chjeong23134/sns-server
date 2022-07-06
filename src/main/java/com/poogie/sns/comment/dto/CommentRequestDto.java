@@ -1,18 +1,18 @@
-package com.poogie.sns.topic.dto;
+package com.poogie.sns.comment.dto;
 
-import com.poogie.sns.topic.domain.TopicEntity;
+import com.poogie.sns.comment.domain.CommentEntity;
 import lombok.Getter;
 
-public class TopicRequestDto {
+public class CommentRequestDto {
     @Getter
     public static class Create {
-        private Long roomId;
+        private Long topicId;
         private Long createUserId;
         private String content;
 
-        public TopicEntity toEntity() {
-            return TopicEntity.builder()
-                    .roomId(this.roomId)
+        public CommentEntity toEntity() {
+            return CommentEntity.builder()
+                    .topicId(this.topicId)
                     .createUserId(this.createUserId)
                     .content(this.content)
                     .isDeleted("N")

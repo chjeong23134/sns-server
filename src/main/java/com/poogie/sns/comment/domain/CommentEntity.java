@@ -1,4 +1,4 @@
-package com.poogie.sns.topic.domain;
+package com.poogie.sns.comment.domain;
 
 import com.poogie.sns.common.AutoDate;
 import lombok.Builder;
@@ -11,23 +11,23 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @Getter
-@Table(name="topic")
-public class TopicEntity extends AutoDate {
+@Table(name="comment")
+public class CommentEntity extends AutoDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long roomId;
+    private Long topicId;
     private Long createUserId;
     private String content;
     private String isDeleted;
 
     @Builder
-    public TopicEntity(Long id, Long roomId, Long createUserId, String content, String isDeleted,
-                        LocalDateTime createDate, LocalDateTime updateDate) {
+    public CommentEntity(Long id, Long topicId, Long createUserId, String content, String isDeleted,
+                         LocalDateTime createDate, LocalDateTime updateDate) {
         super(createDate, updateDate);
 
         this.id = id;
-        this.roomId = roomId;
+        this.topicId = topicId;
         this.createUserId = createUserId;
         this.content = content;
         this.isDeleted = isDeleted;
