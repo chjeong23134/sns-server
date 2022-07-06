@@ -9,4 +9,11 @@ public class UserRequestDto {
         private String password;
         private String name;
     }
+
+    @Getter
+    public static class Update {
+        private Long id;
+        private String password;
+        private String name;
+    }
 }

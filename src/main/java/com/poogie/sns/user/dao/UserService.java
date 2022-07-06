@@ -1,7 +1,6 @@
 package com.poogie.sns.user.dao;
 
 import com.poogie.sns.user.domain.UserEntity;
-import com.poogie.sns.user.dto.AuthRequestDto;
 import com.poogie.sns.user.dto.UserRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -26,5 +25,14 @@ public class UserService {
 
     public UserEntity findById(Long id) {
         return userRepository.findById(id).orElse(null);
+    }
+
+    public UserEntity update(UserRequestDto.Update req) {
+        UserEntity user = userRepository.findById(req.getId())
+                .orElseThrow();
+
+        user.update(passwordEncoder.encode(req.getPassword()), req.getName());
+
+        return userRepository.save(user);
     }
 }

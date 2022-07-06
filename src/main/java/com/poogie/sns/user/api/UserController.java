@@ -23,4 +23,9 @@ public class UserController {
     public ResponseEntity<UserEntity> detail(@PathVariable Long id) {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
+
+    @PutMapping
+    public ResponseEntity<UserEntity> update(@RequestBody UserRequestDto.Update req) {
+        return new ResponseEntity<>(userService.update(req), HttpStatus.OK);
+    }
 }
