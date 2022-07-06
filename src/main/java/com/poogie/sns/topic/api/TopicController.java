@@ -7,10 +7,9 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Slf4j
 @RestController
@@ -22,5 +21,10 @@ public class TopicController {
     @PostMapping("/create")
     public ResponseEntity<TopicEntity> create(@RequestBody TopicRequestDto.Create req) {
         return new ResponseEntity<>(topicService.add(req), HttpStatus.OK);
+    }
+
+    @GetMapping("/list/{roomId}")
+    public ResponseEntity<List<TopicEntity>> list(@PathVariable Long roomId) {
+        return new ResponseEntity<>(topicService.findByRoomId(roomId), HttpStatus.OK);
     }
 }

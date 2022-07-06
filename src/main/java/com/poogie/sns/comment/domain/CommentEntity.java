@@ -19,7 +19,6 @@ public class CommentEntity extends AutoDate {
     private Long topicId;
     private Long createUserId;
     private String content;
-    private String isDeleted;
 
     @Builder
     public CommentEntity(Long id, Long topicId, Long createUserId, String content,

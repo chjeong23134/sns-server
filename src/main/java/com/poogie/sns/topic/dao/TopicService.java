@@ -5,6 +5,8 @@ import com.poogie.sns.topic.dto.TopicRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class TopicService {
@@ -12,5 +14,9 @@ public class TopicService {
 
     public TopicEntity add(TopicRequestDto.Create req) {
         return topicRepository.save(req.toEntity());
+    }
+
+    public List<TopicEntity> findByRoomId(Long roomId) {
+        return topicRepository.findByRoomId(roomId);
     }
 }
