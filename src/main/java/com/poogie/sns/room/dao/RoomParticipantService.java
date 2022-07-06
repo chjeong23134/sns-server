@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class RoomParticipantService {
     private final RoomParticipantRepository roomParticipantRepository;
 
-    public RoomParticipantEntity add(RoomRequestDto.invite req) {
+    public RoomParticipantEntity add(RoomRequestDto.Invite req) {
         return roomParticipantRepository.save(req.toEntity());
     }
 }

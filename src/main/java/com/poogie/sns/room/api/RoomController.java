@@ -26,7 +26,7 @@ public class RoomController {
     }
 
     @PostMapping("/invite")
-    public ResponseEntity<RoomParticipantEntity> invite(@RequestBody RoomRequestDto.invite req) {
+    public ResponseEntity<RoomParticipantEntity> invite(@RequestBody RoomRequestDto.Invite req) {
         return new ResponseEntity<>(roomParticipantService.add(req), HttpStatus.OK);
     }
 }

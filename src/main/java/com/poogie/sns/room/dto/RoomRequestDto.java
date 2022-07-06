@@ -20,7 +20,7 @@ public class RoomRequestDto {
     }
 
     @Getter
-    public static class invite {
+    public static class Invite {
         private Long roomId;
         private Long userId;
 
