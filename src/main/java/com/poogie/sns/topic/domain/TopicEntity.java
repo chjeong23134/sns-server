@@ -19,10 +19,9 @@ public class TopicEntity extends AutoDate {
     private Long roomId;
     private Long createUserId;
     private String content;
-    private String isDeleted;
 
     @Builder
-    public TopicEntity(Long id, Long roomId, Long createUserId, String content, String isDeleted,
+    public TopicEntity(Long id, Long roomId, Long createUserId, String content,
                         LocalDateTime createDate, LocalDateTime updateDate) {
         super(createDate, updateDate);
 
@@ -30,6 +29,5 @@ public class TopicEntity extends AutoDate {
         this.roomId = roomId;
         this.createUserId = createUserId;
         this.content = content;
-        this.isDeleted = isDeleted;
     }
 }

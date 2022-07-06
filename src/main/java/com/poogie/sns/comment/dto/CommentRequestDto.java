@@ -15,7 +15,6 @@ public class CommentRequestDto {
                     .topicId(this.topicId)
                     .createUserId(this.createUserId)
                     .content(this.content)
-                    .isDeleted("N")
                     .build();
         }
     }

@@ -14,7 +14,6 @@ public class RoomRequestDto {
             return RoomEntity.builder()
                     .createUserId(this.createUserId)
                     .name(this.name)
-                    .isDeleted("N")
                     .build();
         }
     }

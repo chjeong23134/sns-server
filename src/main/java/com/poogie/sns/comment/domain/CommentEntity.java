@@ -22,7 +22,7 @@ public class CommentEntity extends AutoDate {
     private String isDeleted;
 
     @Builder
-    public CommentEntity(Long id, Long topicId, Long createUserId, String content, String isDeleted,
+    public CommentEntity(Long id, Long topicId, Long createUserId, String content,
                          LocalDateTime createDate, LocalDateTime updateDate) {
         super(createDate, updateDate);
 
@@ -30,6 +30,5 @@ public class CommentEntity extends AutoDate {
         this.topicId = topicId;
         this.createUserId = createUserId;
         this.content = content;
-        this.isDeleted = isDeleted;
     }
 }

@@ -18,16 +18,14 @@ public class RoomEntity extends AutoDate {
     private Long id;
     private Long createUserId;
     private String name;
-    private String isDeleted;
 
     @Builder
-    public RoomEntity(Long id, Long createUserId, String name, String isDeleted,
+    public RoomEntity(Long id, Long createUserId, String name,
                       LocalDateTime createDate, LocalDateTime updateDate) {
         super(createDate, updateDate);
 
         this.id = id;
         this.createUserId = createUserId;
         this.name = name;
-        this.isDeleted = isDeleted;
     }
 }

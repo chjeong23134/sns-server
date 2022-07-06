@@ -15,7 +15,6 @@ public class TopicRequestDto {
                     .roomId(this.roomId)
                     .createUserId(this.createUserId)
                     .content(this.content)
-                    .isDeleted("N")
                     .build();
         }
     }
