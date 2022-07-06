@@ -1,5 +1,6 @@
 package com.poogie.sns.common;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -12,6 +13,7 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @NoArgsConstructor
+@Getter
 public abstract class AutoDate {
     @CreatedDate
     private LocalDateTime createDate;
