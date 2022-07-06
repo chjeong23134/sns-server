@@ -38,7 +38,8 @@ public class WebSecurityConfig {
         // 토큰발급 API 인증에서 제외
         http
                 .authorizeRequests()
-                .antMatchers("/user/auth/**").permitAll()
+                .antMatchers("/auth").permitAll()
+                .antMatchers("/users").permitAll()
                 .anyRequest().authenticated();
 
         // 세션 끄기

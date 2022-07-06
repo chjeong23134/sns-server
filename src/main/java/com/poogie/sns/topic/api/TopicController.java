@@ -14,17 +14,17 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/topic")
+@RequestMapping("/topics")
 public class TopicController {
     private final TopicService topicService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<TopicEntity> create(@RequestBody TopicRequestDto.Create req) {
         return new ResponseEntity<>(topicService.add(req), HttpStatus.OK);
     }
 
-    @GetMapping("/list/{roomId}")
-    public ResponseEntity<List<TopicEntity>> list(@PathVariable Long roomId) {
+    @GetMapping
+    public ResponseEntity<List<TopicEntity>> list(@RequestParam Long roomId) {
         return new ResponseEntity<>(topicService.findByRoomId(roomId), HttpStatus.OK);
     }
 }

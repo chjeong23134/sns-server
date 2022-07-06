@@ -14,23 +14,17 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/room")
+@RequestMapping("/rooms")
 public class RoomController {
     private final RoomService roomService;
-    private final RoomParticipantService roomParticipantService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<RoomEntity> create(@RequestBody RoomRequestDto.Create req) {
         return new ResponseEntity<>(roomService.add(req), HttpStatus.OK);
     }
 
-    @PostMapping("/invite")
-    public ResponseEntity<RoomParticipantEntity> invite(@RequestBody RoomRequestDto.Invite req) {
-        return new ResponseEntity<>(roomParticipantService.add(req), HttpStatus.OK);
-    }
-
-    @GetMapping("/list/{userId}")
-    public ResponseEntity<List<RoomEntity>> list(@PathVariable Long userId) {
+    @GetMapping
+    public ResponseEntity<List<RoomEntity>> list(@RequestParam Long userId) {
         return new ResponseEntity<>(roomService.findByUserId(userId), HttpStatus.OK);
     }
 }

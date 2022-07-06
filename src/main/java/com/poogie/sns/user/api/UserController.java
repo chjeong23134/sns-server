@@ -12,22 +12,16 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
-    private final AuthService authService;
     private final UserService userService;
 
-    @PostMapping("/auth/sign-in")
-    public ResponseEntity<JwtDto> signIn(@RequestBody AuthRequestDto.SignIn req) {
-        return new ResponseEntity<>(authService.signIn(req), HttpStatus.OK);
-    }
-
-    @PostMapping("/auth/sign-up")
+    @PostMapping
     public ResponseEntity<UserEntity> signUp(@RequestBody AuthRequestDto.SignUp req) {
-        return new ResponseEntity<>(authService.signUp(req), HttpStatus.OK);
+        return new ResponseEntity<>(userService.signUp(req), HttpStatus.OK);
     }
 
-    @GetMapping("/profile/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserEntity> profile(@PathVariable Long id) {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }

@@ -12,17 +12,17 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/comment")
+@RequestMapping("/comments")
 public class CommentController {
     private final CommentService commentService;
 
-    @PostMapping("/create")
+    @PostMapping
     public ResponseEntity<CommentEntity> create(@RequestBody CommentRequestDto.Create req) {
         return new ResponseEntity<>(commentService.add(req), HttpStatus.OK);
     }
 
-    @GetMapping("/list/{topicId}")
-    public ResponseEntity<List<CommentEntity>> list(@PathVariable Long topicId) {
+    @GetMapping
+    public ResponseEntity<List<CommentEntity>> list(@RequestParam Long topicId) {
         return new ResponseEntity<>(commentService.findByTopicId(topicId), HttpStatus.OK);
     }
 }

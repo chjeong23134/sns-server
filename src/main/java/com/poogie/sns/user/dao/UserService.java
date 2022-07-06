@@ -1,13 +1,27 @@
 package com.poogie.sns.user.dao;
 
 import com.poogie.sns.user.domain.UserEntity;
+import com.poogie.sns.user.dto.AuthRequestDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    public UserEntity signUp(AuthRequestDto.SignUp req) {
+        UserEntity user = UserEntity.builder()
+                .email(req.getEmail())
+                .password(passwordEncoder.encode(req.getPassword()))
+                .name(req.getName())
+                .isDeleted("N")
+                .build();
+
+        return userRepository.save(user);
+    }
 
     public UserEntity findById(Long id) {
         return userRepository.findById(id).orElse(null);
