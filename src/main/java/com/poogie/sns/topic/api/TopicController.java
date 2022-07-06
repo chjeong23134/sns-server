@@ -27,4 +27,14 @@ public class TopicController {
     public ResponseEntity<List<TopicEntity>> list(@RequestParam Long roomId) {
         return new ResponseEntity<>(topicService.findByRoomId(roomId), HttpStatus.OK);
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<TopicEntity> detail(@PathVariable Long id) {
+        return new ResponseEntity<>(topicService.findById(id), HttpStatus.OK);
+    }
+
+    @PutMapping
+    public ResponseEntity<TopicEntity> update(@RequestBody TopicRequestDto.Update req) {
+        return new ResponseEntity<>(topicService.update(req), HttpStatus.OK);
+    }
 }

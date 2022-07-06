@@ -19,4 +19,18 @@ public class TopicService {
     public List<TopicEntity> findByRoomId(Long roomId) {
         return topicRepository.findByRoomId(roomId);
     }
+
+    public TopicEntity findById(Long id) {
+        return topicRepository.findById(id)
+                .orElseThrow(null);
+    }
+
+    public TopicEntity update(TopicRequestDto.Update req) {
+        TopicEntity topic = topicRepository.findById(req.getId())
+                .orElseThrow(null);
+
+        topic.update(req.getContent());
+
+        return topicRepository.save(topic);
+    }
 }

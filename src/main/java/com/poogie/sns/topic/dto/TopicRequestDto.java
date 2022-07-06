@@ -18,4 +18,10 @@ public class TopicRequestDto {
                     .build();
         }
     }
+
+    @Getter
+    public static class Update {
+        private Long id;
+        private String content;
+    }
 }
