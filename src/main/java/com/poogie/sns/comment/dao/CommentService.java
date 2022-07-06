@@ -5,6 +5,8 @@ import com.poogie.sns.comment.dto.CommentRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CommentService {
@@ -12,5 +14,9 @@ public class CommentService {
 
     public CommentEntity add(CommentRequestDto.Create req) {
         return commentRepository.save(req.toEntity());
+    }
+
+    public List<CommentEntity> findByTopicId(Long topicId) {
+        return commentRepository.findByTopicId(topicId);
     }
 }
