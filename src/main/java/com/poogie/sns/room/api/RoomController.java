@@ -8,10 +8,9 @@ import com.poogie.sns.room.dto.RoomRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,11 +21,16 @@ public class RoomController {
 
     @PostMapping("/create")
     public ResponseEntity<RoomEntity> create(@RequestBody RoomRequestDto.Create req) {
-        return new ResponseEntity<>(roomService.save(req), HttpStatus.OK);
+        return new ResponseEntity<>(roomService.add(req), HttpStatus.OK);
     }
 
     @PostMapping("/invite")
     public ResponseEntity<RoomParticipantEntity> invite(@RequestBody RoomRequestDto.Invite req) {
         return new ResponseEntity<>(roomParticipantService.add(req), HttpStatus.OK);
+    }
+
+    @GetMapping("/list/{userId}")
+    public ResponseEntity<List<RoomEntity>> list(@PathVariable Long userId) {
+        return new ResponseEntity<>(roomService.findByUserId(userId), HttpStatus.OK);
     }
 }

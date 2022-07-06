@@ -5,6 +5,8 @@ import com.poogie.sns.room.dto.RoomRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class RoomParticipantService {
@@ -12,5 +14,9 @@ public class RoomParticipantService {
 
     public RoomParticipantEntity add(RoomRequestDto.Invite req) {
         return roomParticipantRepository.save(req.toEntity());
+    }
+
+    public List<RoomParticipantEntity> findByUserId(Long userId) {
+        return roomParticipantRepository.findByUserId(userId);
     }
 }
