@@ -1,4 +1,4 @@
-package com.poogie.sns.user.domain;
+package com.poogie.sns.room.domain;
 
 import com.poogie.sns.common.AutoDate;
 import lombok.Builder;
@@ -11,24 +11,22 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @Getter
-@Table(name="user")
-public class UserEntity extends AutoDate {
+@Table(name="room")
+public class RoomEntity extends AutoDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String email;
-    private String password;
+    private Long createUserId;
     private String name;
     private String isDeleted;
 
     @Builder
-    public UserEntity(Long id, String email, String password, String name, String isDeleted,
+    public RoomEntity(Long id, Long createUserId, String name, String isDeleted,
                       LocalDateTime createDate, LocalDateTime updateDate) {
         super(createDate, updateDate);
 
         this.id = id;
-        this.email = email;
-        this.password = password;
+        this.createUserId = createUserId;
         this.name = name;
         this.isDeleted = isDeleted;
     }

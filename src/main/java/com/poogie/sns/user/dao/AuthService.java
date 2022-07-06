@@ -49,6 +49,7 @@ public class AuthService {
                 .email(req.getEmail())
                 .password(passwordEncoder.encode(req.getPassword()))
                 .name(req.getName())
+                .isDeleted("N")
                 .build();
 
         return userRepository.save(user);
