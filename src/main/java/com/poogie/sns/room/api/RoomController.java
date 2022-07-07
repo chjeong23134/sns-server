@@ -1,9 +1,7 @@
 package com.poogie.sns.room.api;
 
-import com.poogie.sns.room.dao.RoomParticipantService;
 import com.poogie.sns.room.dao.RoomService;
 import com.poogie.sns.room.domain.RoomEntity;
-import com.poogie.sns.room.domain.RoomParticipantEntity;
 import com.poogie.sns.room.dto.RoomRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

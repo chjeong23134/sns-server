@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Table(name="room_participant")
-public class RoomParticipantEntity extends AutoDate {
+public class ParticipantEntity extends AutoDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +24,7 @@ public class RoomParticipantEntity extends AutoDate {
     private String userClass;
 
     @Builder
-    public RoomParticipantEntity(Long id, Long roomId, Long userId, String userClass,
+    public ParticipantEntity(Long id, Long roomId, Long userId, String userClass,
                                  LocalDateTime createDate, LocalDateTime updateDate) {
         super(createDate, updateDate);
 

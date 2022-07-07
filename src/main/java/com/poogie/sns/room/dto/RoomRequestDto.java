@@ -1,7 +1,7 @@
 package com.poogie.sns.room.dto;
 
+import com.poogie.sns.room.domain.ParticipantEntity;
 import com.poogie.sns.room.domain.RoomEntity;
-import com.poogie.sns.room.domain.RoomParticipantEntity;
 import lombok.Getter;
 
 public class RoomRequestDto {
@@ -23,8 +23,8 @@ public class RoomRequestDto {
         private Long roomId;
         private Long userId;
 
-        public RoomParticipantEntity toEntity() {
-            return RoomParticipantEntity.builder()
+        public ParticipantEntity toEntity() {
+            return ParticipantEntity.builder()
                     .roomId(this.roomId)
                     .userId(this.userId)
                     .userClass("GENERAL")
