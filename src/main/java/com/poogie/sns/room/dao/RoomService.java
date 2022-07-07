@@ -32,4 +32,9 @@ public class RoomService {
 
         return roomEntitys;
     }
+
+    public RoomEntity findById(Long id) {
+        return roomRepository.findById(id)
+                .orElseThrow(null);
+    }
 }
