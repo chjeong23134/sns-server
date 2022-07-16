@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @Getter
-@Table(name="room_participant")
+@Table(name="participant")
 public class ParticipantEntity extends AutoDate {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
